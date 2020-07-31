@@ -17,7 +17,7 @@
 + "message" : "Szukam tekstu ${tempVars("query")}",
 + "store"   : "Temp",
 + "VName"   : "reply",
-+ "IfFails" : "CActions",
++ "IfFails" : "Continue",
 +  },
 +  {
 + "name"     : "Youtube Search",
@@ -30,7 +30,7 @@
 +  },
 +  {
 + "name"    : "Check Variable",
-+ "SourceV" : "Server",S
++ "SourceV" : "Server",
 + "VName"   : "url",
 + "ComType" : "exists",
 + "IfTrue"  : "Skip",
@@ -41,7 +41,7 @@
 + "name" : "Edit Message",
 + "SMessage" : "Temp",
 + "VName" : "reply",
-+ "Message" : "Błąd! Nie mogę tego znaleźć `${tempVars(\"query\")}`",
++ "Message" : "Błąd! Nie mogę tego znaleźć `${tempVars("query")}`",
 + "Souce" : "Server",
 + "VName" : "",
 +  },
@@ -50,7 +50,7 @@
 +  },
 +  {
 + "name"    : "Store Youtube Info",
-+ "VSearch" : "${tempVars("url")}",
++ "VSearch" : "${serverVars("url")}",
 + "SInfo"   : "Video Title",
 + "Store"   : "Temp",
 + "VName"   : "title",
@@ -86,18 +86,18 @@
 + "AuthorIconURL" : "${msg.author.displayAvatarURL()}",
 + "Timestamp"     : "Current",
 + "Debug"         : "No",
-+ "Store"         : "Temp",
++ "Store"         : "Server",
 + "VName"         : "embed",
 +  },
 +  {
 + "name"        : "Set Embed Description",
 + "SourceV"     : "Server",
 + "VName"       : "embed",
-+ "Description" : "[${tempVars("title")}](${tempVars("url")}) [${member}]",
++ "Description" : "[${tempVars("title")}](${serverVars("url")}) [${member}]",
 +  },
 +  {
 + "name"     : "Edit Message",
-+ "Source"   : "Server",
++ "Source"   : "Temp",
 + "VName"    : "reply",
 + "EMessage" : "Nie znalazłem",
 + "Source2"  : "Server",
@@ -112,7 +112,7 @@
 + "Web URL" : "http://www.youtube.com",
 + "Volume"  : "50",
 + "Passes"  : "5",
-+ "Bitrate" : "${tempVars("br")}",
++ "Bitrate" : "${serverVars("br")}",
 + "PlayT"   : "Add to Queue",
 +  },
 +  {
@@ -130,7 +130,7 @@
 + "WebURL"  : "http://www.youtube.com"
 + "Volume"  : "50",
 + "Passes"  : "5",
-+ "Bitrate" : "${tempVars("br")}",
++ "Bitrate" : "${serverVars("br")}",
 + "PlayT"   : "Add to Queue",
 +  },
 +  {
@@ -147,11 +147,11 @@
 + "name"        : "Set Embed Description",
 + "Source"      : "Server",
 + "VName"       : "embed",
-+ "Description" : "Zapisałem na swojej liście piosenek które chcesz usłyszeć w moim wykonaniu: [${tempVars(\"title\")}](${tempVars(\"url\")}) [${member}]",
-+  },
++ "Description" : "Zapisałem na swojej liście piosenek które chcesz usłyszeć w moim wykonaniu: [${tempVars("title")}](${serverVars("url")}) [${member}]",
++  }
 +  {
 + "name"    : "Edit Message",
-+ "Source"  : "Server",
++ "Source"  : "Temp",
 + "VName"   : "reply",
 + "Source2" : "Server",
 + "VName2"  : "embed",
